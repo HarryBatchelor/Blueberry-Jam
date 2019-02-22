@@ -49,6 +49,7 @@ class SummativeTest1(Frame):
 
         lblTwoB = Label(self, text='What is 10x10?')
         lblTwoB.grid(row=6, column=1, columnspan=2, sticky=W)
+        #git test delet later
 #Main
 root = Tk()
 root.title("Summative Test")
