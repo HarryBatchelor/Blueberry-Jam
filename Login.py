@@ -1,6 +1,5 @@
 from tkinter import *
 import tkinter.messagebox as tm
-from SummativeTest1 import *
 
 class LoginFrame(Frame):
     def __init__(self, master):
