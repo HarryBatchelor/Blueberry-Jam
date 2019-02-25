@@ -31,7 +31,6 @@ class SummativeTest1(Frame):
         self.varQ1 = IntVar()
 
         R1Q1 = Radiobutton(self, variable=self.varQ1, value=0)
-
         R1Q1.grid(row=5, column=4)
 
         R2Q1 = Radiobutton(self,variable=self.varQ1, value=2)
@@ -49,7 +48,32 @@ class SummativeTest1(Frame):
 
         lblTwoB = Label(self, text='What is 10x10?')
         lblTwoB.grid(row=6, column=1, columnspan=2, sticky=W)
-        #git test delet later
+        
+        lblWrongQ2a = Label(self, text = '70')
+        lblWrongQ2a.grid(row = 7, column = 4)
+
+        lblWrongQ2b = Label(self, text = "1000")
+        lblWrongQ2b.grid(row = 7, column = 5)
+
+        lblWrongQ2c = Label(self,text = "10")
+        lblWrongQ2c.grid(row = 7, column = 6)
+
+        lblCorrectQ2 = Label(self, text = "100")
+        lblCorrectQ2.grid(row = 7, column = 7)
+
+        self.varQ2 = IntVar()
+
+        R1Q2 = Radiobutton(self, variable=self.varQ2, value = 0)
+        R1Q2.grid(row=8, column=4)
+
+        R2Q2 = Radiobutton(self, variable=self.varQ2, value=2)
+        R2Q2.grid(row=8, column=5)
+
+        R3Q2 = Radiobutton(self, variable=self.varQ2, value = 3)
+        R3Q2.grid(row=8, column=6)
+
+        R4Q2 = Radiobutton(self, variable=self.varQ2, value=1)
+        R4Q2.grid(row=8, column=7)
 #Main
 root = Tk()
 root.title("Summative Test")
