@@ -31,9 +31,9 @@ class Window(Frame):
 
         gobackButton.place(x=167, y=240)
 
-        
 
-        
+
+
 
 
 root = Tk()#Tk is part of Tkinter, calls the root the main window
@@ -42,4 +42,3 @@ root.geometry("400x300")
 app = Window(root)
 
 root.mainloop
-    
