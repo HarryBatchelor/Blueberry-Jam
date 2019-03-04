@@ -1,15 +1,15 @@
 from tkinter import *
 import tkinter.messagebox as tm
 import sys
-from formative import *
+from FormativeTest import *
 
 data_students = {"": ""}
 data_lecturers = {"kirill": "123"}
 
-class Software(Frame):    
+class Software(Frame):
     def __init__(self, master):
         super().__init__(master)
-        
+
         self.label_username = Label(self, text="Username")
         self.label_password = Label(self, text="Password")
 
@@ -60,7 +60,7 @@ class Software(Frame):
     def _register_btn_clicked(self):
 
         username = self.entry_username.get()
-        password = self.entry_password.get()    
+        password = self.entry_password.get()
 
         if username in data_students:
             tm.showinfo("Register Box", "Username already taken")
@@ -86,7 +86,7 @@ class Software(Frame):
         self.leave = Button(window, text="Exit", command= self.quit)
         self.leave.grid(columnspan=2)
 
-        
+
 
     def summative_page(self):
         window2 = Toplevel(root)
@@ -97,7 +97,7 @@ class Software(Frame):
     def formative_page(self):
         window3 = Toplevel(root)
         app = Quiz(window3)
-        
+
 
     def results_page(self):
         window4 = Toplevel(root)
@@ -105,7 +105,7 @@ class Software(Frame):
         self.leave.grid(columnspan=2)
 
 
-        
+
     def lecturer_page(self):
         windowL = Toplevel(root)
         self.create_summative = Button(windowL, text = "Create Summative Test", command= self.create_summative)
@@ -129,7 +129,7 @@ class Software(Frame):
         self.leave = Button(windowL, text="Exit", command= self.quit)
         self.leave.grid(columnspan=2)
 
-        
+
 
     def create_summative(self):
         windowL2 = Toplevel(root)
@@ -169,4 +169,3 @@ class Software(Frame):
 root = Tk()
 lf = Software(root)
 root.mainloop()
-
