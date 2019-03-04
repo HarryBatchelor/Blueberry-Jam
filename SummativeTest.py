@@ -5,8 +5,7 @@ q = [
     "What is Tkinter?",
     "What is Turtle?",
     "What does the 'Print' command do?",
-    "What Type of language is python?"
-    "Submit The test"
+    "What Type of language is python?",
 
 ]
 
@@ -15,8 +14,7 @@ options = [
     ["A module", "A boolean Value", "A Guided User Interface", "None of the abovve"],
     ["Create a window", "Show a message in the Python shell", "Print to the printer", "None of above"],
     ["A low level language", "An object orientated language", "A high level language", "None of the above"],
-    ["Submit"]
-
+    
 
 ]
 a = [1, 1, 2, 3]
@@ -40,8 +38,8 @@ class Quiz:
         return status_bar
 
     def create_nav(self, master):
-        button = Button(master, text="Back", command=self.back_btn)
-        button.pack(side=BOTTOM)
+        # button = Button(master, text="Back", command=self.back_btn)
+        # button.pack(side=BOTTOM)
         button = Button(master, text="Next", command=self.next_btn)
         button.pack(side=BOTTOM)
         button = Button(master, text="Submit", command=self.sub_btn)
@@ -80,8 +78,8 @@ class Quiz:
         tkinter.messagebox.showinfo("Final Result", result)
         print("Score: " + str(self.correct) + "/" + str(len(q)))
 
-    def back_btn(self):
-        print("go back")
+    # def back_btn(self):
+    #     print("go back")
 
     def next_btn(self):
         if self.check_q(self.qn):
