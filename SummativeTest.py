@@ -1,117 +1,110 @@
 from tkinter import *
-from tkinter import ttk
 import tkinter.messagebox
-from SummativeResponses import SummativeResponses
 
-def main():
+q = [
+    "What is Tkinter?",
+    "What is Turtle?",
+    "What does the 'Print' command do?",
+    "What Type of language is python?"
+    "Submit The test"
 
-    notebook.add(frame1, text="One")
-    notebook.add(frame2, text="Two")
-    notebook.add(frame3, text="Three")
-    notebook.add(frame4, text="Four")
-    notebook.add(frame5, text="Five")
-    notebook.add(frameSub, text="Submit")
+]
 
-    Label(frame1, text="What is Tkinter?").grid(row=2, column=2)
-    Button(frame1, text="Guided User Interface", command=correct1).grid(row=3, column=1)
-    Button(frame1, text="Variable", command=incorrect1).grid(row=3, column=2)
-    Button(frame1, text="Function", command=incorrect1).grid(row=3, column=3)
+options = [
+    ["A Guided User Interface", "A Variable", "A Function", "None of the above"],
+    ["A module", "A boolean Value", "A Guided User Interface", "None of the abovve"],
+    ["Create a window", "Show a message in the Python shell", "Print to the printer", "None of above"],
+    ["A low level language", "An object orientated language", "A high level language", "None of the above"],
+    ["Submit"]
 
-    Label(frame2, text="What is Turtle?").grid(row=2, column=2)
-    Button(frame2, text="Guided User Interface", command=incorrect2).grid(row=3, column=1)
-    Button(frame2, text="Module", command=correct2).grid(row=3, column=2)
-    Button(frame2, text="Boolean Value", command=incorrect2).grid(row=3, column=3)
 
-    Label(frame3, text="What does the 'Print' command do?").grid(row=2, column=2)
-    Button(frame3, text="Create a window", command=incorrect3).grid(row=3, column=1)
-    Button(frame3, text="Show a message in the Python Shell", command=correct3).grid(row=3, column=2)
-    Button(frame3, text="Print to the printer", command=incorrect3).grid(row=3, column=3)
+]
+a = [1, 1, 2, 3]
 
-    Label(frame4, text="What is Sublime Text?").grid(row=2, column=2)
-    Button(frame4, text="A text editor", command=correct4).grid(row=3, column=1)
-    Button(frame4, text="A music player", command=incorrect4).grid(row=3, column=2)
-    Button(frame4, text="A word processor", command=incorrect4).grid(row=3, column=3)
 
-    Label(frame5, text="What type of language is python?").grid(row=2, column=2)
-    Button(frame5, text="A low level language", command=incorrect5).grid(row=3, column=1)
-    Button(frame5, text="An object orientated language", command=incorrect5).grid(row=3, column=2)
-    Button(frame5, text="A high level language", command=correct5).grid(row=3, column=3)
+class Quiz:
+    def __init__(self, master):
+        self.opt_selected = IntVar()
+        self.qn = 0
+        self.correct = 0
+        self.ques = self.create_q(master, self.qn)
+        self.opts = self.create_options(master, 4)
+        self.display_q(self.qn)
+        self.status_bar = self.create_status_bar(master)
+        self.create_nav(master)
+        # self.storeResponse()
 
-    Button(frameSub, text="Submit", font=('MS','8','bold'),command=submit).grid(row=2, column=4, columnspan=2)
+    def create_status_bar(self, master):
+        status_bar = Label(master, text='Please choose the right answer')
+        status_bar.pack(side=BOTTOM, fill=X)
+        return status_bar
 
-    notebook.pack()
+    def create_nav(self, master):
+        button = Button(master, text="Back", command=self.back_btn)
+        button.pack(side=BOTTOM)
+        button = Button(master, text="Next", command=self.next_btn)
+        button.pack(side=BOTTOM)
+        button = Button(master, text="Submit", command=self.sub_btn)
+        button.pack(side=BOTTOM)
 
-    # Label(root, text="Total:").pack()
-    # Label(root, textvariable=total).pack()
+    def create_q(self, master, qn):
+        w = Label(master, text=q[qn])
+        w.pack(side=TOP)
+        return w
 
-def correct1():
-    Label(frame1, text="Answer Submitted").grid(row=1, column=2)
-    # counter()
+    def create_options(self, master, n):
+        b_val = 0
+        b = []
+        while b_val < n:
+            btn = Radiobutton(master, text="Please choose the right answer", variable=self.opt_selected, value=b_val + 1)
+            b.append(btn)
+            btn.pack(side=TOP, anchor="w")
+            b_val = b_val + 1
+        return b
 
-def incorrect1():
-    Label(frame1, text="Answer Submitted").grid(row=1, column=2)
+    def display_q(self, qn):
+        b_val = 0
+        self.opt_selected.set(0)
+        self.ques['text'] = q[qn]
+        for op in options[qn]:
+            self.opts[b_val]['text'] = op
+            b_val = b_val + 1
 
-def correct2():
-    Label(frame2, text="Answer Submitted").grid(row=1, column=2)
-    # counter()
+    def check_q(self, qn):
+        if self.opt_selected.get() == a[qn]:
+            return True
+        return False
 
-def incorrect2():
-    Label(frame2, text="Answer Submitted").grid(row=1, column=2)
+    def print_results(self):
+        result = "Score: " + str(self.correct) + "/" + str(len(q))
+        tkinter.messagebox.showinfo("Final Result", result)
+        print("Score: " + str(self.correct) + "/" + str(len(q)))
 
-def correct3():
-    Label(frame3, text="Answer Submitted").grid(row=1, column=2)
-    # counter()
+    def back_btn(self):
+        print("go back")
 
-def incorrect3():
-    Label(frame3, text="Answer Submitted").grid(row=1, column=2)
-
-def correct4():
-    Label(frame4, text="Answer Submitted").grid(row=1, column=2)
-    # counter()
-
-def incorrect4():
-    Label(frame4, text="Answer Submitted").grid(row=1, column=2)
-
-def correct5():
-    Label(frame5, text="Answer Submitted").grid(row=1, column=2)
-    # counter()
-
-def incorrect5():
-    Label(frame5, text="Answer Submitted").grid(row=1, column=2)
-
-# def counter():
-#     total.set(total.get() + 1)
-
-# Submitting the answers to SummativeResponses.py
-def submit():
-    Label(frameSub, text="Test Submitted").grid(row=1,column=2)
-    storeResponse()
-
-# Storing the responses in a database within SummativeResponses.py
-def storeResponse():
+    def next_btn(self):
+        if self.check_q(self.qn):
+            self.status_bar['text'] = "Correct"
+            self.correct += 1
+        else:
+            self.status_bar['text'] = "Wrong"
+        self.qn = self.qn + 1
+        if self.qn >= len(q):
+            self.print_results()
+        else:
+            self.display_q(self.qn)
+    def sub_btn(self):
+        sub_btn["command"] = self.storeResponse
+    def storeResponse(self):
         import shelve
         db = shelve.open('responsedb')
 
-        responseCount = len(db)
-        Ans = Response(str(responseCount+1), strProg, correct1.get(), correct2.get(), correct3.get(), correct4.get(), correct5.get())
-        db[Ans.respNo] = Ans
-        db.close
 
 
 
 root = Tk()
-
-total = IntVar()  # defaults to 0
-
-notebook = ttk.Notebook(root)
-
-frame1 = ttk.Frame(notebook)
-frame2 = ttk.Frame(notebook)
-frame3 = ttk.Frame(notebook)
-frame4 = ttk.Frame(notebook)
-frame5 = ttk.Frame(notebook)
-frameSub = ttk.Frame(notebook)
-
-main()
-
+root.title("Welcome to the Python test")
+root.geometry("400x300")
+app = Quiz(root)
 root.mainloop()
