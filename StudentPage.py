@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 from tkinter import *
 
 class Window(Frame):
@@ -44,7 +44,7 @@ app = Window(root)
 
 root.mainloop
     
-=======
+
 from tkinter import *
 
 class Window(Frame):
@@ -89,4 +89,4 @@ root.geometry("400x300")
 app = Window(root)
 
 root.mainloop
->>>>>>> 900b37c2130fad71db1e0d45023f0eeb2d09ea93
+
