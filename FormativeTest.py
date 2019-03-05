@@ -5,8 +5,8 @@ q = [
     "What is the output of print 7//2",
     "What is answer of this expression, 22 % 7 is?",
     "What is the output of this expression, 3**3?",
-    "Which one of the following have the highest precedence in the expression?"
-    "What data type is the object L = [1, 23, ‘hello’, 1].?"
+    "Which one of the following have the highest precedence in the expression?",
+    "What data type is the object L = [1, 23, ‘hello’, 1].?",
     "Which is the special symbol used in python to add comments?"
 ]
 
