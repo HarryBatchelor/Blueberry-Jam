@@ -1,1 +1,3 @@
-schultzman p1kaCh: BSC-Computer_Science CM1205 Howard Schultz c1944129 SchultzH@cardiff.ac.uk
+schultzman p1kaCh: BA-Business CM0504 Howard Schultz c1944129 SchultzH@cardiff.ac.uk
+helenph helPH1! BSC-Computer_Science CM1202 Helen Phillips c1429567 PhillipsHR@cardiff.ac.uk
+addyliam cO.1A! BSC-Dentistry CM0979 Liam Addy c1294855 addyld@cardiff.ac.uk
